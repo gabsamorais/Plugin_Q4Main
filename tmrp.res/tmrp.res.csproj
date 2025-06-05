@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+	<UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;MSB3277</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;MSB3277</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <None Remove="Images\Icons\Bar-Chart.png" />
+    <None Remove="Images\Icons\brick.png" />
+    <None Remove="Images\Icons\bricks.png" />
+    <None Remove="Images\Icons\building - proj.png" />
+    <None Remove="Images\Icons\building.png" />
+    <None Remove="Images\Icons\building2.png" />
+    <None Remove="Images\Icons\construction.png" />
+    <None Remove="Images\Icons\dashboard.png" />
+    <None Remove="Images\Icons\dashboard1.png" />
+    <None Remove="Images\Icons\data.png" />
+    <None Remove="Images\Icons\database.png" />
+    <None Remove="Images\Icons\database1.png" />
+    <None Remove="Images\Icons\decision.png" />
+    <None Remove="Images\Icons\door-elemento.png" />
+    <None Remove="Images\Icons\mechanic.png" />
+    <None Remove="Images\Icons\pencil.png" />
+    <None Remove="Images\Icons\pencil1.png" />
+    <None Remove="Images\Icons\pencil2.png" />
+    <None Remove="Images\Icons\registro.png" />
+    <None Remove="Images\Icons\regmain.png" />
+    <None Remove="Images\Icons\schedule.png" />
+    <None Remove="Images\Icons\Sobre.png" />
+    <None Remove="Images\Icons\team.png" />
+    <None Remove="Images\Icons\workers.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Icons\Bar-Chart.png" />
+    <EmbeddedResource Include="Images\Icons\brick.png" />
+    <EmbeddedResource Include="Images\Icons\bricks.png" />
+    <EmbeddedResource Include="Images\Icons\building - proj.png" />
+    <EmbeddedResource Include="Images\Icons\building.png" />
+    <EmbeddedResource Include="Images\Icons\building2.png" />
+    <EmbeddedResource Include="Images\Icons\construction.png" />
+    <EmbeddedResource Include="Images\Icons\dashboard.png" />
+    <EmbeddedResource Include="Images\Icons\dashboard1.png" />
+    <EmbeddedResource Include="Images\Icons\data.png" />
+    <EmbeddedResource Include="Images\Icons\database1.png" />
+    <EmbeddedResource Include="Images\Icons\decision.png" />
+    <EmbeddedResource Include="Images\Icons\door-elemento.png" />
+    <EmbeddedResource Include="Images\Icons\pencil.png" />
+    <EmbeddedResource Include="Images\Icons\pencil1.png" />
+    <EmbeddedResource Include="Images\Icons\pencil2.png" />
+    <EmbeddedResource Include="Images\Icons\registro.png" />
+    <EmbeddedResource Include="Images\Icons\regmain.png" />
+    <EmbeddedResource Include="Images\Icons\Sobre.png" />
+    <EmbeddedResource Include="Images\Icons\team.png" />
+    <EmbeddedResource Include="Images\Icons\workers.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BouncyCastle.Cryptography" Version="2.5.1" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.4" />
+    <PackageReference Include="MathNet.Numerics" Version="6.0.0-beta2" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3179.45" />
+    <PackageReference Include="OxyPlot.Core" Version="2.2.0" />
+    <PackageReference Include="OxyPlot.Wpf" Version="2.2.0" />
+    <PackageReference Include="OxyPlot.Wpf.Shared" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore">
+      <HintPath>..\..\..\Windows\WinSxS\x86_presentationcore_31bf3856ad364e35_10.0.27000.388_none_d93ac616dd324dd5\PresentationCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

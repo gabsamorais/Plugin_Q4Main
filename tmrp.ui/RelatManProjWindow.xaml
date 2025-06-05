@@ -1,0 +1,80 @@
+﻿<Window x:Class="tmrp.ui.RelatManProjWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Q4Main: Análise de Manutenções do Projeto"
+        Height="600" Width="950"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="Manual"
+        ResizeMode="CanResize">
+    <Window.Resources>
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10" HorizontalAlignment="Center">
+            <TextBlock FontSize="20" FontWeight="Bold" TextAlignment="Center" Margin="0,0,0,10">
+        <Run Text="Relatório de Manutenções do Projeto"/>
+            </TextBlock>
+
+            <TextBlock x:Name="txtTotalManutencoesProj" FontSize="14" TextAlignment="Center" Margin="0,0,0,5"/>
+            <TextBlock x:Name="txtMediaTempoExecucaoProj" FontSize="14" TextAlignment="Center" Margin="0,0,0,10"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,10,10,0">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+                    <TextBlock Text="Tipo de manutenção:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox x:Name="cmbFiltroTipoManutencaoProj" Width="200" SelectionChanged="cmbFiltroTipoManutencaoProj_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="10">
+                    <TextBlock Text="Tipo de serviço:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox x:Name="cmbFiltroTipoServicoProj" Width="200" SelectionChanged="cmbFiltroTipoServicoProj_SelectionChanged"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+
+        <Grid Grid.Row="2">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="10,0,10,0">
+                <DataGrid x:Name="dgManutencoesProj" AutoGenerateColumns="False" Margin="0,10,10,10"
+                          CanUserResizeColumns="True" SelectionChanged="dgManutencoesProj_SelectionChanged" MinHeight="250" Width="889">
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID do Elemento" Binding="{Binding ElementId}" Width="*"/>
+                        <DataGridTextColumn Header="Tipo de Manutenção" Binding="{Binding TipoManutencao}" Width="*"/>
+                        <DataGridTextColumn Header="Tipo de Serviço" Binding="{Binding TipoServico}" Width="*"/>
+                        <DataGridTextColumn Header="Data de Abertura" Binding="{Binding DataAbertura}" Width="*"/>
+                        <DataGridTextColumn Header="Data de Fechamento" Binding="{Binding DataFechamento}" Width="*"/>
+                        <DataGridTextColumn Binding="{Binding TempoExecucao}" Width="*">
+                            <DataGridTextColumn.Header>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                    <TextBlock Text="Tempo de Execução" TextAlignment="Center"/>
+                                    <TextBlock Text="(dias)" TextAlignment="Center"/>
+                                </StackPanel>
+                            </DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
+        
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,10">
+            <Button Content="Salvar em PDF" Click="ExportarPDFProj_Click" Width="150" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
+
+
+
